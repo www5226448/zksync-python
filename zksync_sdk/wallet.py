@@ -376,10 +376,11 @@ class Wallet:
 
     async def get_limit_order(self, token_sell: TokenLike, token_buy: TokenLike,
                               ratio: Fraction, ratio_type: RatioType,
+			     amount: Decimal,
                               recipient: Optional[str] = None,
                               valid_from=DEFAULT_VALID_FROM,
                               valid_until=DEFAULT_VALID_UNTIL):
-        return await self.get_order(token_sell, token_buy, ratio, ratio_type, Decimal(0), recipient, valid_from,
+        return await self.get_order(token_sell, token_buy, ratio, ratio_type, Decimal(amount), recipient,None, valid_from,
                                     valid_until)
 
     # This function takes as a parameter the integer amounts/fee of 
